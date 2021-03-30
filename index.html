@@ -1,1 +1,211 @@
+<!DOCTYPE html>
 
+<!DOCTYPE html>
+
+<html>
+
+<body style="background-color:#ccffff;text-align:center">
+
+      </body>
+
+
+
+<center><h1>Test If 2 Words Are An Anagram</h1></center>
+
+
+
+
+
+  <center><label for="fname">Word 1:</label>
+
+    <input type="text" style="background-color:#ffffff" id="w1name" name="w1name"  onmouseover="myFunctioncl()" ><br><br>
+
+  <label for="lname">Word 2:</label>
+
+   <input type="text" id="w2name" style="background-color:#ffffff" name="w2name" onmouseover="myFunctioncl()" ><br><br>
+
+   <button onclick="myFunction()">Run test</button>
+
+  <p id="demo"></p>
+
+<div id="passit" hidden="hidden" <span style="font-size:40px; color:#538b01">PASS</span> </div>
+
+<div id="failit" hidden="hidden" <span style="font-size:40px;color:#FF0000">FAIL</span> </div>
+
+</center>
+
+<script>
+
+function myFunction() {
+
+  var word1 = document.getElementById("w1name").value.replace(/\s/g, '').toUpperCase();
+
+  var word2 = document.getElementById("w2name").value.replace(/\s/g, '').toUpperCase();
+
+  var pass = "pass";
+
+  var indexs;
+
+  if (word1.length != word2.length) {
+
+    pass = "fail" ;}
+
+  if ( pass == "pass") {
+
+              for( var x = 0; x < word1.length; x++) {
+
+                  indexs = word2.indexOf(word1.substring(x, x + 1));
+
+                  if (indexs != -1 ) {
+
+           word2 =  word2.substr(0,indexs) + word2.substr( indexs + 1, word2.length -indexs + 2  );
+
+         } else {
+
+           pass = "fail";
+
+           x = word1.length + 1;
+
+        }
+
+                 }  //end for
+
+     }  //end if
+
+   if ( pass == "fail" ) {
+
+     document.getElementById("failit").hidden = "";}
+
+    else {
+
+     document.getElementById("passit").hidden = "";}
+
+}
+
+
+
+function myFunction_hold() {
+
+  var sword1 = document.getElementById("w1name").value;
+
+  var sword2 = document.getElementById("w2name").value;
+
+  var word1 = sword1.replace(/\s/g, '');
+
+  var word2 = sword2.replace(/\s/g, '');
+
+// alert(sword1 + " " + word1+ " , " + sword2 + " " + word2 )
+
+  var lword1 = word1.length;
+
+  var lword2 = word2.length;
+
+  var wlword1 = word1.length;
+
+  var wlword2 = word2.length;
+
+//  alert(sword1 + " " + word1 + " " + lword1+ " , " + sword2 + " " + word2 + " " + lword2)
+
+
+
+  var pass = "pass";
+
+  var i = 0;
+
+  var x = 0;
+
+  var hchar1;
+
+  var hchar2;
+
+  var hword;
+
+  var chmatch;
+
+  var txt;
+
+  if (wlword1 != wlword2) {
+
+    pass = "fail" }
+
+  hword = word2;
+
+  for (i = 0; i < lword1; i++) {        
+
+   if ( pass == "pass") {
+
+      x = 0;
+
+              chmatch = "N";
+
+              lword2 = word2.length;
+
+     while ( x < lword2 ){
+
+                   hchar1 = word1.substring(i, i + 1);
+
+         hchar2 = hword.substring(x, x + 1);
+
+              //
+
+                if (hchar1 == hchar2) {
+
+           chmatch = "Y";
+
+           hword =  hword.substr(0,x) + hword.substr( x + 1, lword2 -x + 2  );
+
+           lword2 =  0;
+
+        }
+
+    //      
+
+                   x = x + 1;
+
+              }  //end while
+
+      if ( chmatch != "Y")  {
+
+          pass = "fail"; }
+
+    }  // if pass = pass  
+
+              } // end for
+
+              txt = "The words submitted are " + sword1 +" and " + sword2 + " =  " + pass;
+
+   // alert(" pass + "  +  pass   );
+
+   if ( pass == "fail" ) {
+
+     document.getElementById("failit").hidden = "";}
+
+    else {
+
+     document.getElementById("passit").hidden = "";}
+
+
+
+  // document.getElementById("demo").innerHTML = pass;
+
+
+
+}
+
+
+
+function myFunctioncl() {
+
+  document.getElementById("failit").hidden = "hidden";
+
+  document.getElementById("passit").hidden = "hidden";
+
+}
+
+</script>
+
+
+
+</body>
+
+</html>
