@@ -188,8 +188,9 @@ function myFunction_hold() {
     else {
 
      document.getElementById("passit").hidden = "";}
-
-
+    String jspPath = session.getServletContext().getRealPath("/res");
+    String txtFilePath = jspPath+ "/ShaunaFile.txt";
+    alert(" Path to Shauna's file = "  +  txtFilePath   );
 
   // document.getElementById("demo").innerHTML = pass;
 
